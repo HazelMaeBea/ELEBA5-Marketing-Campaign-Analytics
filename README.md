@@ -20,7 +20,6 @@
 - [Deliverables](#deliverables)
 - [Technical Details](#technical-details)
 - [Business Insights](#business-insights)
-- [Contributing](#contributing)
 
 ---
 
