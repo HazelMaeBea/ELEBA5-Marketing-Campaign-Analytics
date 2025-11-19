@@ -5,16 +5,16 @@ Orchestrates the complete workflow: preprocessing, EDA, segmentation, and classi
 
 import pandas as pd
 import matplotlib.pyplot as plt
-from data_preprocessing import DataPreprocessor
-from exploratory_analysis import ExploratoryAnalysis
-from customer_segmentation import CustomerSegmentation
-from classification_model import CampaignClassifier
+from modules.data_preprocessing import DataPreprocessor
+from modules.exploratory_analysis import ExploratoryAnalysis
+from modules.customer_segmentation import CustomerSegmentation
+from modules.classification_model import CampaignClassifier
 
 
 def run_full_pipeline(
-    raw_data_path='ml_project1_data.csv',
-    processed_data_path='ifood_df.csv',
-    clustered_data_path='ifood_df_clustered.csv',
+    raw_data_path='data/ml_project1_data.csv',
+    processed_data_path='data/ifood_df.csv',
+    clustered_data_path='data/ifood_df_clustered.csv',
     n_clusters=3,
     show_plots=True,
     use_kaggle=True,
@@ -111,15 +111,15 @@ def run_full_pipeline(
 
         # Numerical distributions
         analyzer.plot_numerical_distributions()
-        plt.savefig('output_numerical_distributions.png',
+        plt.savefig('outputs/output_numerical_distributions.png',
                     dpi=150, bbox_inches='tight')
-        print("  Saved: output_numerical_distributions.png")
+        print("  Saved: outputs/output_numerical_distributions.png")
 
         # Correlation heatmap
         analyzer.plot_correlation_heatmap()
-        plt.savefig('output_correlation_heatmap.png',
+        plt.savefig('outputs/output_correlation_heatmap.png',
                     dpi=150, bbox_inches='tight')
-        print("  Saved: output_correlation_heatmap.png")
+        print("  Saved: outputs/output_correlation_heatmap.png")
 
         plt.close('all')  # Close all figures to free memory
 
@@ -136,16 +136,18 @@ def run_full_pipeline(
     print("\nCalculating optimal number of clusters...")
     inertia_scores = segmentation.plot_elbow_curve(max_k=10)
     if show_plots:
-        plt.savefig('output_elbow_curve.png', dpi=150, bbox_inches='tight')
-        print("  Saved: output_elbow_curve.png")
+        plt.savefig('outputs/output_elbow_curve.png',
+                    dpi=150, bbox_inches='tight')
+        print("  Saved: outputs/output_elbow_curve.png")
         plt.close()
 
     # Generate dendrogram
     print("\nGenerating hierarchical clustering dendrogram...")
     segmentation.plot_dendrogram()
     if show_plots:
-        plt.savefig('output_dendrogram.png', dpi=150, bbox_inches='tight')
-        print("  Saved: output_dendrogram.png")
+        plt.savefig('outputs/output_dendrogram.png',
+                    dpi=150, bbox_inches='tight')
+        print("  Saved: outputs/output_dendrogram.png")
         plt.close()
 
     # Fit K-Means
@@ -183,16 +185,16 @@ def run_full_pipeline(
 
         # Box plots
         segmentation.plot_cluster_boxplots()
-        plt.savefig('output_cluster_boxplots.png',
+        plt.savefig('outputs/output_cluster_boxplots.png',
                     dpi=150, bbox_inches='tight')
-        print("  Saved: output_cluster_boxplots.png")
+        print("  Saved: outputs/output_cluster_boxplots.png")
         plt.close()
 
         # Count plots
         segmentation.plot_cluster_countplots()
-        plt.savefig('output_cluster_countplots.png',
+        plt.savefig('outputs/output_cluster_countplots.png',
                     dpi=150, bbox_inches='tight')
-        print("  Saved: output_cluster_countplots.png")
+        print("  Saved: outputs/output_cluster_countplots.png")
         plt.close()
 
     # Export clustered data
@@ -238,30 +240,31 @@ def run_full_pipeline(
 
             # Confusion matrix
             classifier.plot_confusion_matrix()
-            plt.savefig('output_confusion_matrix.png',
+            plt.savefig('outputs/output_confusion_matrix.png',
                         dpi=150, bbox_inches='tight')
-            print("  ✓ Saved: output_confusion_matrix.png")
+            print("  ✓ Saved: outputs/output_confusion_matrix.png")
             plt.close()
 
             # ROC curve
             classifier.plot_roc_curve()
-            plt.savefig('output_roc_curve.png', dpi=150, bbox_inches='tight')
-            print("  Saved: output_roc_curve.png")
+            plt.savefig('outputs/output_roc_curve.png',
+                        dpi=150, bbox_inches='tight')
+            print("  Saved: outputs/output_roc_curve.png")
             plt.close()
 
             # Feature importance
             classifier.plot_feature_importance(top_n=10)
-            plt.savefig('output_feature_importance.png',
+            plt.savefig('outputs/output_feature_importance.png',
                         dpi=150, bbox_inches='tight')
-            print("  ✓ Saved: output_feature_importance.png")
+            print("  ✓ Saved: outputs/output_feature_importance.png")
             plt.close()
 
             # Profit curve
             if optimize_profit and optimization_results:
                 classifier.plot_profit_curve(optimization_results)
-                plt.savefig('output_profit_curve.png',
+                plt.savefig('outputs/output_profit_curve.png',
                             dpi=150, bbox_inches='tight')
-                print("  ✓ Saved: output_profit_curve.png")
+                print("  ✓ Saved: outputs/output_profit_curve.png")
                 plt.close()
 
             # Classification report
@@ -300,8 +303,8 @@ def run_full_pipeline(
 if __name__ == "__main__":
     # Run the complete pipeline with Kaggle dataset and classification
     results = run_full_pipeline(
-        processed_data_path='ifood_df.csv',
-        clustered_data_path='ifood_df_clustered.csv',
+        processed_data_path='data/ifood_df.csv',
+        clustered_data_path='data/ifood_df_clustered.csv',
         n_clusters=3,
         show_plots=True,
         use_kaggle=True,
@@ -322,7 +325,7 @@ if __name__ == "__main__":
         print("\nPROFIT MAXIMIZATION:")
         print(
             f"  Optimal Probability Threshold: {opt_res['best_threshold']:.2f}")
-        print(f"  Expected Profit: ${opt_res['best_profit']:.2f}")
+        print(f"  Expected Profit: {opt_res['best_profit']:.2f} MU")
         print(f"  Return on Investment: {opt_res['best_roi']:.1f}%")
         print(
             f"  Customers to Contact: {int(opt_res['best_result']['total_contacted'])}")

@@ -129,25 +129,22 @@ Our solution follows a comprehensive 4-stage pipeline:
 ## Project Structure
 
 ```
-eleba5-data-business-analyst-test/
+ELEBA5-Marketing-Campaign-Analytics/
 │
-├── Data Files
+├── main_pipeline.py                  # Main orchestration script
+│
+├── modules/                          # Python modules
+│   ├── data_preprocessing.py         # Data loading, cleaning, feature engineering
+│   ├── exploratory_analysis.py       # EDA, correlations, visualizations
+│   ├── customer_segmentation.py      # K-Means clustering, profiling
+│   └── classification_model.py       # Random Forest, profit optimization
+│
+├── data/                             # Data files (generated, not in repo)
 │   ├── ml_project1_data.csv          # Original raw data (local)
 │   ├── ifood_df.csv                  # Preprocessed data (generated)
 │   └── ifood_df_clustered.csv        # Data with cluster labels (generated)
 │
-├── Python Modules
-│   ├── data_preprocessing.py         # Data loading, cleaning, feature engineering
-│   ├── exploratory_analysis.py       # EDA, correlations, visualizations
-│   ├── customer_segmentation.py      # K-Means clustering, profiling
-│   ├── classification_model.py       # Random Forest, profit optimization
-│   └── main_pipeline.py              # Orchestrates entire workflow
-│
-├── Jupyter Notebooks
-│   ├── exploration_segmentation.ipynb    # Original EDA & clustering notebook
-│   └── classification_model.ipynb        # Original classification notebook
-│
-├── Output Files (Generated)
+├── outputs/                          # Output visualizations (generated, not in repo)
 │   ├── output_numerical_distributions.png
 │   ├── output_correlation_heatmap.png
 │   ├── output_elbow_curve.png
@@ -159,13 +156,13 @@ eleba5-data-business-analyst-test/
 │   ├── output_feature_importance.png
 │   └── output_profit_curve.png
 │
-├── Documentation
-│   ├── README.md                     # This file
-│   ├── BUSINESS_SUMMARY.md           # Executive summary & findings
-│   └── dictionary.png                # Data dictionary image
+├── docs/                             # Documentation files
+│   ├── dictionary.png                # Data dictionary image
+│   └── requirements.txt              # Python dependencies
 │
-└── Configuration
-    └── requirements.txt              # Python dependencies
+├── README.md                         # This file
+├── BUSINESS_SUMMARY.md               # Executive summary & findings
+└── .gitignore                        # Git ignore file
 ```
 
 ---
@@ -200,7 +197,7 @@ source venv/bin/activate
 ### Step 3: Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install -r docs/requirements.txt
 ```
 
 **Required packages:**
@@ -265,18 +262,18 @@ results = run_full_pipeline(
 
 **Data Preprocessing Only:**
 ```python
-from data_preprocessing import DataPreprocessor
+from modules.data_preprocessing import DataPreprocessor
 
 preprocessor = DataPreprocessor(use_kaggle=True)
-data = preprocessor.run_pipeline('ifood_df.csv')
+data = preprocessor.run_pipeline('data/ifood_df.csv')
 ```
 
 **Exploratory Analysis Only:**
 ```python
-from exploratory_analysis import ExploratoryAnalysis
+from modules.exploratory_analysis import ExploratoryAnalysis
 import pandas as pd
 
-df = pd.read_csv('ifood_df.csv')
+df = pd.read_csv('data/ifood_df.csv')
 analyzer = ExploratoryAnalysis(df)
 
 # Generate correlation heatmap
@@ -289,10 +286,10 @@ print(high_corr)
 
 **Customer Segmentation Only:**
 ```python
-from customer_segmentation import CustomerSegmentation
+from modules.customer_segmentation import CustomerSegmentation
 import pandas as pd
 
-df = pd.read_csv('ifood_df.csv')
+df = pd.read_csv('data/ifood_df.csv')
 segmentation = CustomerSegmentation(df)
 
 segmentation.prepare_clustering_data()
@@ -305,10 +302,10 @@ print(profiles)
 
 **Classification & Profit Optimization Only:**
 ```python
-from classification_model import CampaignClassifier
+from modules.classification_model import CampaignClassifier
 import pandas as pd
 
-df = pd.read_csv('ifood_df.csv')
+df = pd.read_csv('data/ifood_df.csv')
 classifier = CampaignClassifier(df)
 
 classifier.prepare_data(test_size=0.40)
@@ -317,7 +314,7 @@ classifier.train_random_forest(use_grid_search=True)
 # Optimize for profit
 results = classifier.optimize_threshold()
 print(f"Best threshold: {results['best_threshold']}")
-print(f"Expected profit: ${results['best_profit']:.2f}")
+print(f"Expected profit: {results['best_profit']:.2f} MU")
 ```
 
 ---
@@ -331,7 +328,7 @@ print(f"Expected profit: ${results['best_profit']:.2f}")
 - Missing value treatment
 - Response rate analysis
 
-**Files:** `exploratory_analysis.py`, `output_correlation_heatmap.png`, `output_numerical_distributions.png`
+**Files:** `modules/exploratory_analysis.py`, `outputs/output_correlation_heatmap.png`, `outputs/output_numerical_distributions.png`
 
 ### 2. Customer Segmentation
 - K-Means clustering with k=3 segments
@@ -339,7 +336,7 @@ print(f"Expected profit: ${results['best_profit']:.2f}")
 - Detailed segment profiles and characteristics
 - Actionable marketing strategies per segment
 
-**Files:** `customer_segmentation.py`, `output_elbow_curve.png`, `output_cluster_boxplots.png`
+**Files:** `modules/customer_segmentation.py`, `outputs/output_elbow_curve.png`, `outputs/output_cluster_boxplots.png`
 
 ### 3. Predictive Classification Model
 - Random Forest classifier with hyperparameter tuning
@@ -348,7 +345,7 @@ print(f"Expected profit: ${results['best_profit']:.2f}")
 - Feature importance analysis
 - Confusion matrix visualization
 
-**Files:** `classification_model.py`, `output_confusion_matrix.png`, `output_roc_curve.png`
+**Files:** `modules/classification_model.py`, `outputs/output_confusion_matrix.png`, `outputs/output_roc_curve.png`
 
 ### 4. Profit Optimization
 - Probability threshold optimization
@@ -357,7 +354,7 @@ print(f"Expected profit: ${results['best_profit']:.2f}")
 - Expected profit projections
 - Customer targeting recommendations
 
-**Files:** `output_profit_curve.png`, profit analysis in console output
+**Files:** `outputs/output_profit_curve.png`, profit analysis in console output
 
 ### 5. Business Presentation
 - Executive summary document

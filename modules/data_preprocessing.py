@@ -85,8 +85,16 @@ class DataPreprocessor:
         else:
             data_path = self.filepath
 
-        self.raw_data = pd.read_csv(data_path)
+        # Try reading with semicolon delimiter first (Kaggle dataset format)
+        self.raw_data = pd.read_csv(data_path, sep=';')
+
+        # Check if data was loaded correctly (should have multiple columns)
+        if len(self.raw_data.columns) == 1:
+            # If only one column, try with comma delimiter
+            self.raw_data = pd.read_csv(data_path)
+
         print(f"Loaded {len(self.raw_data)} records from {data_path}")
+        print(f"Columns: {self.raw_data.columns.tolist()}")
         return self.raw_data
 
     def engineer_features(self):

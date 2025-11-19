@@ -423,7 +423,7 @@ class CampaignClassifier:
         print("PROFIT OPTIMIZATION RESULTS")
         print("=" * 50)
         print(f"Optimal Threshold: {best_result['threshold']:.2f}")
-        print(f"Expected Profit: ${best_result['profit']:.2f}")
+        print(f"Expected Profit: {best_result['profit']:.2f} MU")
         print(f"ROI: {best_result['roi']:.1f}%")
         print(f"Customers to Contact: {int(best_result['total_contacted'])}")
         print(f"Expected Conversions: {int(best_result['total_conversions'])}")
@@ -462,7 +462,7 @@ class CampaignClassifier:
         axes[0].axvline(x=optimization_results['best_threshold'], color='green',
                         linestyle='--', alpha=0.5, label=f"Best: {optimization_results['best_threshold']:.2f}")
         axes[0].set_xlabel('Probability Threshold')
-        axes[0].set_ylabel('Expected Profit ($)')
+        axes[0].set_ylabel('Expected Profit (MU)')
         axes[0].set_title('Profit Optimization Curve')
         axes[0].grid(alpha=0.3)
         axes[0].legend()
