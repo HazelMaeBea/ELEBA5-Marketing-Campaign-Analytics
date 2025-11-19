@@ -321,15 +321,6 @@ print(f"Best threshold: {results['best_threshold']}")
 print(f"Expected profit: ${results['best_profit']:.2f}")
 ```
 
-### Option 4: Use Jupyter Notebooks
-
-Open and run notebooks for interactive analysis:
-
-```bash
-jupyter notebook exploration_segmentation.ipynb
-jupyter notebook classification_model.ipynb
-```
-
 ---
 
 ## Deliverables
@@ -526,76 +517,6 @@ jupyter notebook classification_model.ipynb
 
 ---
 
-## Sample Output
-
-### Console Output (Profit Optimization)
-
-```
-======================================================================
-PROFIT OPTIMIZATION RESULTS
-======================================================================
-Optimal Threshold: 0.65
-Expected Profit: $642.50
-ROI: 21.4%
-Customers to Contact: 950
-Expected Conversions: 314
-Conversion Rate: 33.1%
-
-======================================================================
-KEY BUSINESS INSIGHTS
-======================================================================
-
-PROFIT MAXIMIZATION:
-  Optimal Probability Threshold: 0.65
-  Expected Profit: $642.50
-  Return on Investment: 21.4%
-  Customers to Contact: 950
-  Expected Conversions: 314
-  Expected Conversion Rate: 33.1%
-```
-
-### Generated Visualizations
-
-All plots are automatically saved as high-resolution PNG files (150 DPI):
-
-1. **output_correlation_heatmap.png** - Feature correlation matrix
-2. **output_numerical_distributions.png** - Histograms of key variables
-3. **output_elbow_curve.png** - K-Means elbow plot
-4. **output_dendrogram.png** - Hierarchical clustering tree
-5. **output_cluster_boxplots.png** - Feature distributions by cluster
-6. **output_cluster_countplots.png** - Categorical features by cluster
-7. **output_confusion_matrix.png** - Model prediction accuracy
-8. **output_roc_curve.png** - ROC curve with AUC score
-9. **output_feature_importance.png** - Top 10 predictive features
-10. **output_profit_curve.png** - Profit vs. threshold optimization
-
----
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Improvement Ideas
-
-- [ ] Add more clustering algorithms (DBSCAN, Gaussian Mixture)
-- [ ] Implement deep learning models (Neural Networks)
-- [ ] Create interactive dashboard (Streamlit/Dash)
-- [ ] Add time-series analysis for seasonality
-- [ ] Implement A/B testing framework
-- [ ] Build REST API for model deployment
-- [ ] Add automated model monitoring
-- [ ] Create customer lifetime value (CLV) predictions
-
----
-
 ## References & Resources
 
 ### Dataset
@@ -612,26 +533,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 - [pandas Documentation](https://pandas.pydata.org/docs/)
 - [matplotlib Documentation](https://matplotlib.org/stable/contents.html)
 - [seaborn Documentation](https://seaborn.pydata.org/)
-
----
-
-## Contact
-
-**Project Maintainer:** Hazel Mae  
-**Repository:** [https://github.com/HazelMaeBea/eleba5-data-business-analyst-test](https://github.com/HazelMaeBea/eleba5-data-business-analyst-test)
-
----
-
-## Acknowledgments
-
-- iFood for the marketing campaign case study
-- Kaggle community for dataset hosting
-- scikit-learn developers for excellent ML tools
-- UST University - Capstone II Project
-
----
-
-**If you found this project helpful, please give it a star!**
 
 ---
 

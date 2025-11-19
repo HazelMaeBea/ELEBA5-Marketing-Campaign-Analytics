@@ -6,7 +6,7 @@
 
 ---
 
-## 📊 Executive Overview
+## Executive Overview
 
 ### Business Challenge
 The pilot marketing campaign (Campaign 5) resulted in a significant financial loss:
@@ -21,7 +21,7 @@ Build a predictive model to identify high-probability customers for Campaign 6, 
 
 ---
 
-## 🎯 Key Findings & Results
+## Key Findings & Results
 
 ### 1. Customer Segmentation Analysis
 
@@ -74,7 +74,7 @@ Three distinct customer segments were identified using K-Means clustering:
 
 ### 3. Profit Optimization Results
 
-**🎯 Optimal Campaign Strategy:**
+**Optimal Campaign Strategy:**
 
 Using probability threshold optimization (testing thresholds from 0.1 to 0.9):
 
@@ -112,7 +112,7 @@ Using probability threshold optimization (testing thresholds from 0.1 to 0.9):
 
 ---
 
-## 💡 Strategic Recommendations
+## Strategic Recommendations
 
 ### Immediate Actions (Campaign 6)
 
@@ -166,7 +166,7 @@ Using probability threshold optimization (testing thresholds from 0.1 to 0.9):
 
 ---
 
-## 📈 Expected Business Impact
+## Expected Business Impact
 
 ### Financial Projection (Campaign 6)
 
@@ -204,7 +204,7 @@ Using probability threshold optimization (testing thresholds from 0.1 to 0.9):
 
 ---
 
-## 🔧 Technical Implementation
+## Technical Implementation
 
 ### Data Pipeline
 1. **Preprocessing:** Feature engineering, outlier removal, missing value handling
@@ -227,7 +227,7 @@ Using probability threshold optimization (testing thresholds from 0.1 to 0.9):
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 The predictive model successfully addresses the core business challenge:
 
