@@ -168,11 +168,12 @@ def run_full_pipeline(
         print(
             f"  Size: {stats['size']} customers ({stats['percentage']:.1f}%)")
         if stats['avg_income']:
-            print(f"  Avg Income: ${stats['avg_income']:.2f}")
+            print(f"  Avg Income: {stats['avg_income']:.2f} MU")
         if stats['avg_age']:
             print(f"  Avg Age: {stats['avg_age']:.1f} years")
         if stats['avg_total_spending']:
-            print(f"  Avg Total Spending: ${stats['avg_total_spending']:.2f}")
+            print(
+                f"  Avg Total Spending: {stats['avg_total_spending']:.2f} MU")
         if stats['avg_campaigns_accepted']:
             print(
                 f"  Avg Campaigns Accepted: {stats['avg_campaigns_accepted']:.2f}")

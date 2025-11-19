@@ -53,8 +53,8 @@ class CampaignClassifier:
         self.revenue_per_conversion = self.pilot_revenue / self.pilot_conversions
 
         print(f"Campaign Economics:")
-        print(f"  Cost per contact: ${self.cost_per_contact:.2f}")
-        print(f"  Revenue per conversion: ${self.revenue_per_conversion:.2f}")
+        print(f"  Cost per contact: {self.cost_per_contact:.2f} MU")
+        print(f"  Revenue per conversion: {self.revenue_per_conversion:.2f} MU")
 
     def prepare_data(self, test_size=0.40, random_state=5):
         """

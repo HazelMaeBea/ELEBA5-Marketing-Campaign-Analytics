@@ -416,8 +416,8 @@ print(f"Expected profit: {results['best_profit']:.2f} MU")
 ### Profit Optimization Methodology
 
 **Economic Parameters:**
-- Cost per contact: $3.00 (derived from pilot: 6,720 MU / 2,240 customers)
-- Revenue per conversion: ~$10.94 (derived from pilot: 3,674 MU / 336 conversions)
+- Cost per contact: 3.00 MU (derived from pilot: 6,720 MU / 2,240 customers)
+- Revenue per conversion: ~10.94 MU (derived from pilot: 3,674 MU / 336 conversions)
 
 **Optimization Process:**
 1. Generate prediction probabilities (0-1 scale)
@@ -425,8 +425,8 @@ print(f"Expected profit: {results['best_profit']:.2f} MU")
 3. For each threshold, calculate:
    - Customers contacted (probability > threshold)
    - Expected conversions (true positives)
-   - Cost = Contacts × $3
-   - Revenue = Conversions × $10.94
+   - Cost = Contacts × 3 MU
+   - Revenue = Conversions × 10.94 MU
    - Profit = Revenue - Cost
 4. Select threshold with maximum profit
 
@@ -505,9 +505,9 @@ print(f"Expected profit: {results['best_profit']:.2f} MU")
 - **Middle-Market:** Balanced across all channels
 
 **Cost Efficiency:**
-- Digital channels: Lowest cost per contact (~$0.50)
-- Catalog: Medium cost (~$2.00)
-- Phone: Highest cost (~$3.00)
+- Digital channels: Lowest cost per contact (~0.50 MU)
+- Catalog: Medium cost (~2.00 MU)
+- Phone: Highest cost (~3.00 MU)
 
 **Recommendation:** Use digital channels for Segments 0 & 2, reserve phone/catalog for Segment 1
 
@@ -518,11 +518,6 @@ print(f"Expected profit: {results['best_profit']:.2f} MU")
 ### Dataset
 - **Source:** [Kaggle - Marketing Campaign Dataset](https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign)
 - **Original:** iFood CRM customer database
-
-### Academic References
-- Hastie, T., Tibshirani, R., & Friedman, J. (2009). *The Elements of Statistical Learning*
-- Provost, F., & Fawcett, T. (2013). *Data Science for Business*
-- Han, J., Kamber, M., & Pei, J. (2011). *Data Mining: Concepts and Techniques*
 
 ### Libraries & Tools
 - [scikit-learn Documentation](https://scikit-learn.org/stable/documentation.html)
