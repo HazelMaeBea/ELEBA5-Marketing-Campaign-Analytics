@@ -243,7 +243,7 @@ def run_full_pipeline(
             classifier.plot_confusion_matrix()
             plt.savefig('outputs/output_confusion_matrix.png',
                         dpi=150, bbox_inches='tight')
-            print("  ✓ Saved: outputs/output_confusion_matrix.png")
+            print("  Saved: outputs/output_confusion_matrix.png")
             plt.close()
 
             # ROC curve
@@ -257,7 +257,7 @@ def run_full_pipeline(
             classifier.plot_feature_importance(top_n=10)
             plt.savefig('outputs/output_feature_importance.png',
                         dpi=150, bbox_inches='tight')
-            print("  ✓ Saved: outputs/output_feature_importance.png")
+            print("  Saved: outputs/output_feature_importance.png")
             plt.close()
 
             # Profit curve
@@ -265,7 +265,7 @@ def run_full_pipeline(
                 classifier.plot_profit_curve(optimization_results)
                 plt.savefig('outputs/output_profit_curve.png',
                             dpi=150, bbox_inches='tight')
-                print("  ✓ Saved: outputs/output_profit_curve.png")
+                print("  Saved: outputs/output_profit_curve.png")
                 plt.close()
 
             # Classification report

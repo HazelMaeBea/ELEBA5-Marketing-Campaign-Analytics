@@ -92,36 +92,39 @@ Our solution follows a comprehensive 4-stage pipeline:
 
 | Metric | Pilot Campaign (Random) | Optimized Campaign (Model) | Improvement |
 |--------|------------------------|---------------------------|-------------|
-| **Customers Contacted** | 2,240 | ~800-1,200 | ↓ 46-64% |
-| **Conversion Rate** | 15% | **28-35%** | ↑ +87-133% |
-| **Campaign Cost** | 6,720 MU | ~2,400-3,600 MU | ↓ 46-64% |
-| **Net Profit** | **-3,046 MU** | **+300 to +800 MU** | **+109% swing** |
-| **ROI** | -45% | **+8% to +25%** | Positive! |
+| **Customers Contacted** | 2,240 | 152 | ↓ 93% |
+| **Conversion Rate** | 15% | **53.9%** | ↑ +259% |
+| **Campaign Cost** | 6,720 MU | 456 MU | ↓ 93% |
+| **Net Profit** | **-3,046 MU** | **+440.63 MU** | **+3,487 MU swing** |
+| **ROI** | -45% | **+96.6%** | Positive! |
 
 ### Model Performance
 
-- **Accuracy:** 87-90%
-- **Precision:** 75-80%
-- **Recall:** 60-70%
-- **F1-Score:** 67-73%
-- **ROC AUC:** 85-88%
+- **Accuracy:** 87%
+- **Precision:** 68% (for positive class)
+- **Recall:** 26% (for positive class)
+- **F1-Score:** 37% (for positive class)
+- **Optimal Threshold:** 0.30 (for profit maximization)
+- **Expected Conversion Rate at Optimal Threshold:** 53.9%
 
 ### Customer Segments Identified
 
-**Segment 0: Budget-Conscious Families** (35-40%)
-- Lower income, more dependents
-- Price-sensitive, high web usage
-- Strategy: Digital campaigns, value propositions
-
-**Segment 1: Premium Customers** (25-30%)
-- High income, few/no dependents
-- High spending on wine & meat
-- **Highest campaign acceptance rate**
+**Cluster 0: Premium Customers** (32.4%)
+- High income (~75,533 MU), Low dependents
+- High spending (~1,207 MU total)
+- **Highest campaign acceptance rate: 23.5%**
 - Strategy: Premium positioning, catalog offers
 
-**Segment 2: Middle-Market Shoppers** (30-35%)
-- Moderate income, balanced behavior
-- Mixed channel preference
+**Cluster 1: Budget-Conscious Families** (33.1%)
+- Lower income (~28,175 MU), More children
+- Low spending (~76 MU total)
+- Campaign acceptance rate: 11.6%
+- Strategy: Digital campaigns, value propositions
+
+**Cluster 2: Middle-Market Shoppers** (34.5%)
+- Moderate income (~51,680 MU)
+- Moderate spending (~425 MU total)
+- Campaign acceptance rate: 10.5%
 - Strategy: Targeted promotions, cross-selling
 
 ---
